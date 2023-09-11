@@ -109,3 +109,25 @@ void calculateSumAndMean(struct Node* head) {
         printf("Mean of the nodes: %.2f\n", mean);
     }
 }
+
+//insertatEnd:
+struct Node* insertAtEnd(struct Node* head, int data) {
+    struct Node* newNode = createNode(data);
+    if (head == NULL) {
+        return newNode;
+    } else {
+        struct Node* current = head;
+        while (current->next != NULL) {
+            current = current->next;
+        }
+        current->next = newNode;
+        return head; // Return the head after insertion
+    }
+}
+
+//insertatBegin:
+struct Node* insertAtBeginning(struct Node* head, int data) {
+    struct Node* newNode = createNode(data);
+    newNode->next = head;
+    return newNode; // Return the new head after insertion
+}
